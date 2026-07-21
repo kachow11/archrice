@@ -1,6 +1,6 @@
 # Neovim Configuration
 
-This is a minimal Neovim configuration built using the built‑in `vim.pack` plugin manager.
+This is a minimal and super based one file Neovim configuration built using the built‑in `vim.pack` plugin manager.
 
 ## Features
 
