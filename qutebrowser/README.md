@@ -2,6 +2,11 @@
 
 A custom Qutebrowser setup with a custom startpage, site‑specific CSS tweaks, adblocking, and vertical tabs.
 
+# IMPORTANT
+
+i have added configurations for security purposes such as disabling canvas reading, geolocation, webrtc and some other things like spoofing timezone, so if you dont want them you can remove them in config.py 
+also i used breadonpenguins qutebrowser config as the base for mine
+
 ## Files
 
 Place all files in `~/.config/qutebrowser/`:
@@ -27,9 +32,6 @@ Replace `USERNAME` with your actual username.
 - Vertical tabs on the left (toggle with `tT`).
 - Dark theme with custom colors for statusbar, tabs, completion, hints.
 - Adblocking using uBlock Origin filter lists (fetched from GitHub).(doesnt really work im sorry)
-- Dark mode enabled for web content (except local files).
-- Custom search engines: DuckDuckGo default, ArchWiki, Arch packages, GitHub, YouTube.
-- Keybindings for quick commands: `=` (open URL), `h` (history), `cc` (copy image link to clipboard), etc.
 - Local startpage with a search box and quick links.
 
 ## Dependencies
