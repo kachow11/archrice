@@ -40,8 +40,8 @@ config = config
 
 # --- Local Startpage ---
 # Use the file:// protocol to point to your local index.html
-c.url.start_pages = ['file:///home/zzgeezfoo/.config/qutebrowser/startpage/index.html']
-c.url.default_page = 'file:///home/zzgeezfoo/.config/qutebrowser/startpage/index.html'
+c.url.start_pages = ['file:///home/USERNAME/.config/qutebrowser/startpage/index.html']
+c.url.default_page = 'file:///home/USERNAME/.config/qutebrowser/startpage/index.html'
 
 # --- Adblocker & WebGL ---
 c.content.blocking.enabled = True
