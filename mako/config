@@ -1,0 +1,20 @@
+# ~/.config/mako/config
+
+background-color=#101010
+text-color=#aaaaaa
+border-color=#708090
+border-size=1
+border-radius=0
+
+font=jetbrainsmono nerd font 13
+width=300
+height=100
+margin=10
+padding=10
+
+# How long the notification stays (in milliseconds)
+default-timeout=7000
+
+# Grouping / Behavior
+max-visible=5
+sort=-time
