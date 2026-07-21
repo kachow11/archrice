@@ -1,0 +1,133 @@
+ytd-app {
+    /* Backgrounds (Special Colors) */
+    --yt-spec-base-background: #101010 !important;          /* main_background */
+    --yt-spec-brand-background-primary: #101010 !important;
+    --yt-spec-general-background-a: #101010 !important;
+    --yt-spec-general-background-b: #101010 !important;
+    
+    --yt-spec-menu-background: #191919 !important;         /* menu_background */
+    --yt-spec-general-background-c: #191919 !important; 
+    --ytd-searchbox-background: #191919 !important;
+    
+    --yt-spec-raised-background: #1A1A1A !important;       /* popup_background */
+    --ytd-searchbox-legacy-button-color: #1A1A1A !important;
+    
+    --yt-spec-badge-chip-background: #242424 !important;   /* statusline */
+    --ytd-searchbox-legacy-border-color: #242424 !important;
+    --yt-spec-10-percent-layer: #242424 !important;
+    
+    --yt-spec-button-chip-background-hover: #3A3A3A !important; /* comment */
+
+    /* Text & Visibility (Lackluster Colors) */
+    --yt-spec-text-primary: #deeeed !important;            /* luster (Main titles) */
+    --yt-spec-text-secondary: #aaaaaa !important;          /* gray7 (Readable metadata) */
+    --yt-spec-text-disabled: #666666 !important;           /* keyword */
+    
+    /* Icons */
+    --yt-spec-icon-active-other: #deeeed !important;       /* luster */
+    --yt-spec-icon-inactive: #8E8E8E !important;           /* param */
+    --yt-spec-brand-icon-active: #deeeed !important; 
+    --yt-spec-brand-icon-inactive: #8E8E8E !important; 
+    
+    /* Brand & Accent Colors */
+    --yt-spec-brand-button-background: #D70000 !important; /* red */
+    --yt-spec-call-to-action: #7788AA !important;           /* blue */
+
+    /* Thumbnail Radius */
+    --ytd-thumbnail-border-radius: 0px !important;
+}
+
+/* 
+ * 2. BACKGROUND CONTAINER FIXES
+ */
+ytd-app,
+ytd-app #content,
+ytd-app #page-manager,
+ytd-app ytd-masthead,
+ytd-app #masthead-container,
+ytd-app #guide-wrapper {
+    background-color: #101010 !important;
+}
+
+/* 
+ * 3. TEXT VISIBILITY OVERRIDES (Solves black-on-black issues)
+ */
+
+/* Main video titles */
+ytd-app #video-title,
+ytd-app h1.ytd-watch-metadata,
+ytd-app .title.ytd-video-primary-info-renderer {
+    color: #deeeed !important; /* luster */
+}
+
+/* Comments body text & expanded video descriptions */
+ytd-app #content-text,
+ytd-app #description-inline-expander,
+ytd-app ytd-text-inline-expander,
+ytd-app .ytd-expandable-message-renderer {
+    color: #cccccc !important; /* gray8 */
+}
+
+/* Metadata: view count, uploaded time, subscriber count, video stats */
+ytd-app #metadata,
+ytd-app #metadata-line,
+ytd-app .ytd-video-meta-block,
+ytd-app #owner-sub-count,
+ytd-app #info-text,
+ytd-app .yt-core-attributed-string--white-space-pre-wrap {
+    color: #aaaaaa !important; /* gray7 */
+}
+
+/* Search input box text & icons */
+ytd-app #search-form input {
+    color: #deeeed !important;
+    background-color: #191919 !important;
+}
+
+ytd-app yt-icon,
+ytd-app .yt-icon-container,
+ytd-app svg {
+    fill: #deeeed !important;
+}
+
+/* 
+ * 4. CHANNEL NAMES ONLY (#708090 - lack)
+ */
+ytd-app #channel-name.ytd-video-owner-renderer,
+ytd-app ytd-channel-name .yt-simple-endpoint,
+ytd-app .ytd-channel-name a,
+ytd-app #text.ytd-channel-name,
+ytd-app #channel-title,
+ytd-app #owner #channel-name a {
+    color: #708090 !important; /* lack */
+}
+
+ytd-app ytd-thumbnail,
+ytd-app ytd-thumbnail *,
+ytd-app ytd-thumbnail-overlay-time-status-renderer,
+ytd-app ytd-thumbnail-overlay-resume-playback-renderer,
+ytd-app .ytp-videowall-still-image,
+ytd-app ytd-playlist-thumbnail,
+ytd-app ytd-rich-grid-media,
+ytd-app .ytp-sb-subscribe,
+ytd-app #avatar,
+ytd-app #author-thumbnail,
+ytd-app yt-img-shadow {
+    border-radius: 0px !important;
+}
+
+/* Time status badge overlay background */
+ytd-app ytd-thumbnail-overlay-time-status-renderer {
+    background-color: #242424 !important; /* statusline */
+    color: #deeeed !important;
+}
+
+/* 
+ * 6. REDUCED ANIMATIONS (Fast transitions to prevent breaking UI JS)
+ */
+ytd-app *,
+ytd-app *::before,
+ytd-app *::after {
+    transition-duration: 0.01s !important;
+    animation-duration: 0.01s !important;
+}
