@@ -57,12 +57,7 @@ Install these via your system package manager or language‑specific tools:
 - `lua-language-server` – for Lua.
 - `pyright` – Python (type checking and language server).
 - `bash-language-server` – for Bash.
-- `pylsp` – Python (alternative LSP).  
-  Note: both `pyright` and `pylsp` are enabled; you may keep one or both.
-
-### Optional Tools
-
-- `fzf` – for the `<leader>f` keymap to work (requires `fzf.vim` plugin as well, which is not included here). If you do not use this, remove the mapping or install the plugin separately.
+- `python-language-server` – Python (alternative LSP).  
 
 ## Installation
 
