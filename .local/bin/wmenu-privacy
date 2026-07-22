@@ -3,7 +3,7 @@
 # wmenu styling options based on your config
 WMENU_OPTS=(
     -f "jetbrainsmono nerd font 14"
-    -l "10"
+    -l "5"
     -N "#101010"
     -n "#555555"
     -S "#101010"
