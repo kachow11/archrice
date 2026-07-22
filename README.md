@@ -16,4 +16,4 @@ Place each file in its respective directory as noted. For qutebrowser, replace t
 
 ## Dependencies
 
-Refer to each component’s specific README for detailed dependencies. The main packages are: `neovim`, `mako`, `foot`, `ttf-jetbrains-mono-nerd`, `qutebrowser`, `wmenu`, `grim`, `slurp`, `waylock`, `pactl`, `dwl`, `wlr-randr`, `swaybg`, and relevant LSP servers.
+Refer to each component’s specific README for detailed dependencies. The main packages are: `neovim`, `mako`, `foot`, `ttf-jetbrains-mono-nerd`, `qutebrowser`, `wmenu`, `grim`, `slurp`, `waylock`, `pactl`, `dwl`, `wlr-randr`, `swaybg`, `mat2`, and relevant LSP servers.
