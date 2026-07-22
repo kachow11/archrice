@@ -7,7 +7,7 @@
 - **Qutebrowser** (`~/.config/qutebrowser/`) – Browser with vertical tabs, adblock, local startpage, and site‑specific CSS.
   - Startpage: `~/.config/qutebrowser/startpage/index.html` (edit the user path to your own).
   - Styles: `styles/youtube-tweaks.css`, `styles/ddg.css`, `styles/archwiki.css`.
-- **Scripts** (`~/.local/bin/`) – note, powermenu, screenshot, startdwl, volume.
+- **Scripts** (`~/.local/bin/`) – note, powermenu, screenshot, startdwl, volume and a privacy script.
 - **dwl** – Custom compositor config (`config.def.h`, optional `config.mk`, patches).
 
 ## Installation
