@@ -4,17 +4,17 @@ A collection of simple shell scripts for daily tasks on my Wayland setup with `d
 
 ## Scripts
 
-### note.sh
+### wmenu-notes
 - **Purpose** – Create and edit notes in `~/notes/`. Lists existing notes, prompts with `wmenu` to select or type a new name, then opens the file with `nvim`.
 - **Dependencies** – `wmenu`, `foot`, `nvim` (or adjust `EDITOR_CMD`).
 
-### powermenu.sh
+### wmenu-powermenu
 - **Purpose** – System power menu with sub‑menus for killing processes.
   - Main options: Shutdown, Reboot, Suspend, Logout, Lock, Kill (select a process by PID), Killall (kill all instances of a process name).
   - Uses `waylock` for locking.
 - **Dependencies** – `wmenu`, `waylock`, `systemctl` (or `zzz` for suspend on non‑systemd), `ps`, `kill`, `killall`.
 
-### screenshot.sh
+### wmenu-screenshot
 - **Purpose** – Interactive region screenshot with `grim` and `slurp`. Saves to `~/Pictures/screenshots/` with a timestamp. Sends a notification via `mako` on success or failure.
 - **Dependencies** – `grim`, `slurp`, `libnotify` (notify-send).
 
@@ -31,4 +31,8 @@ A collection of simple shell scripts for daily tasks on my Wayland setup with `d
   - Usage: `volume.sh up|down|mute`.
   - Displays a progress bar using Pango markup (filled `━`, empty `─`) in the notification.
 - **Dependencies** – `pactl` (PulseAudio), `notify-send`.
+
+### wmenu-privacy
+- **Purpose** - Using tools to ensure privacy
+- **Dependencies** - `mat2`
 
