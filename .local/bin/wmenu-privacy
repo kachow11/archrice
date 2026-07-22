@@ -1,0 +1,118 @@
+#!/usr/bin/env bash
+
+# wmenu styling options based on your config
+WMENU_OPTS=(
+    -f "jetbrainsmono nerd font 14"
+    -l "10"
+    -N "#101010"
+    -n "#555555"
+    -S "#101010"
+    -s "#708090"
+    -M "#101010"
+    -m "#708090"
+)
+
+# Interactive file browser locked to $HOME
+pick_file() {
+    local current_dir="$HOME"
+    
+    while true; do
+        local options=()
+        
+        # Only offer "Go Back" if we are inside a subdirectory of $HOME
+        if [ "$current_dir" != "$HOME" ]; then
+            options+=("📁 .. (Go Back)")
+        fi
+
+        # Read folders and files from current_dir (ignoring hidden files)
+        while IFS= read -r item; do
+            [ -z "$item" ] && continue
+            if [ -d "$current_dir/$item" ]; then
+                options+=("📁 $item/")
+            else
+                options+=("📄 $item")
+            fi
+        done < <(command ls -1 --color=never "$current_dir" 2>/dev/null)
+
+        # Format path prompt (e.g., Browse [~/Documents/Work]:)
+        local display_path="${current_dir#$HOME}"
+        display_path="~${display_path:-/}"
+        
+        local selection
+        selection=$(printf "%s\n" "${options[@]}" | wmenu -p "Browse [$display_path]:" "${WMENU_OPTS[@]}")
+
+        # Exit picker if user hits Escape
+        if [ -z "$selection" ]; then
+            return 1
+        fi
+
+        if [[ "$selection" == "📁 .. (Go Back)" ]]; then
+            current_dir="$(dirname "$current_dir")"
+        elif [[ "$selection" == 📁\ * ]]; then
+            # Enter selected directory
+            local dir_name="${selection#📁 }"
+            dir_name="${dir_name%/}"
+            current_dir="$current_dir/$dir_name"
+        elif [[ "$selection" == 📄\ * ]]; then
+            # Return chosen file's full path
+            local file_name="${selection#📄 }"
+            echo "$current_dir/$file_name"
+            return 0
+        fi
+    done
+}
+
+# Main menu options
+declare -a options=(
+    " Strip File Metadata (mat2)"
+    " Secure Shred File (shred)"
+    " Clear Wayland Clipboard"
+    " Wipe Shell History"
+    " Clear Thumbnail Cache"
+)
+
+choice=$(printf '%s\n' "${options[@]}" | wmenu -p "Privacy Menu:" "${WMENU_OPTS[@]}")
+
+case "$choice" in
+    " Strip File Metadata (mat2)")
+        file=$(pick_file)
+        if [ -n "$file" ] && [ -f "$file" ]; then
+            mat2 "$file"
+            notify-send "Privacy" "Stripped metadata from:\n$(basename "$file")"
+        fi
+        ;;
+
+    " Secure Shred File (shred)")
+        file=$(pick_file)
+        if [ -n "$file" ] && [ -f "$file" ]; then
+            confirm=$(printf "No\nYes" | wmenu -p "SHRED $(basename "$file")?:" "${WMENU_OPTS[@]}")
+            if [ "$confirm" = "Yes" ]; then
+                shred -uvz "$file"
+                notify-send "Privacy" "Securely shredded:\n$(basename "$file")"
+            fi
+        fi
+        ;;
+
+    " Clear Wayland Clipboard")
+        wl-copy -c
+        notify-send "Privacy" "Wayland clipboard wiped."
+        ;;
+
+    " Wipe Shell History")
+        confirm=$(printf "No\nYes" | wmenu -p "Wipe bash & zsh history?:" "${WMENU_OPTS[@]}")
+        if [ "$confirm" = "Yes" ]; then
+            > ~/.bash_history
+            > ~/.zsh_history
+            notify-send "Privacy" "Shell history wiped."
+        fi
+        ;;
+
+    " Clear Thumbnail Cache")
+        rm -rf ~/.cache/thumbnails/*
+        notify-send "Privacy" "File manager thumbnail cache cleared."
+        ;;
+
+    *)
+        exit 0
+        ;;
+esac
